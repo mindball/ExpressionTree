@@ -34,11 +34,9 @@ framework-ц трябва да знаят за вашият код.
 Добре е да се ползва при случай когато имаме голямо дърво за изследване, в 
 другите моменти когато ни потрябват expression, голям процент, е че те са прекалено 
 нишови: пример имаме 1-2 случаи за анализ и в такива случай няма нужда от visitor pattern
-
 ```
 
 ### Implement visitor pattern
 ```
-
 https://docs.microsoft.com/en-us/dotnet/csharp/expression-trees-interpreting
 ```
