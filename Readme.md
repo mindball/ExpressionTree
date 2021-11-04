@@ -23,7 +23,23 @@ public void ParseExpression(Expression expression)
 ## Compile expression
 ```
 когато compile expression tree, връща ф-ята, която е wrap-ната в самият expression
-Compile операцията е бавна, трябва да се избягва
+Compile операцията е бавна, трябва да се избягва или да се кешира. Проблема на кеширането 
+е че не можем да кешираме expresion дървета. Тоест нямаме default-тен механизъм за кеширане на дървета,
+техният GetHashCode не работи както трябва(не е имплементиран спецефично, тоест да разпознава различни expression-ни)
+Ако се опитаме да запазим expressiоn-и в речник ще стане колизия и това е защото тези два:
+Expression<Func<Cat, int>> expression2 = c => new Cat().Maw(42);
+Expression<Func<Cat, int>> expression3 = c => new Cat().Maw(42);
+са различни неща и според GetHashCode ще получим едно нещо, а то всъщност не е.
+
+var id = 2;
+Expression<Func<Cat, int>> expression2 = c => new Cat().Maw(id);
+id = 4;
+Expression<Func<Cat, int>> expression3 = c => new Cat().Maw(42);
+Summary:
+Едно expresion дърво и друго expresion дърво са две различни неща от гледна точна на C#,
+независимо дали изглеждат по един и същи начин.
+Expression<Func<int> exp1 = () => 42;
+Expression<Func<int> exp2 = () => 42;
 ```
 
 ## When to use
