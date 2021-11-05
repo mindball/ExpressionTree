@@ -4,13 +4,16 @@
     {
         public Cat()
         {
-
+            this.SomeHidenProperty = "Hidden value";            
         }
 
         public Cat(string name)
         {
             this.Name = name;
+            
         }
+
+        private string SomeHidenProperty { get; set; }       
 
         public string Name { get; set; }
 
