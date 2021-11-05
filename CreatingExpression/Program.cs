@@ -1,5 +1,7 @@
 ﻿using ExampleClasses;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace CreatingExpression
@@ -17,7 +19,59 @@ namespace CreatingExpression
 
             //cat => cat.SayMew(42)
             //Need it: constant, method call, parameter, lambda expression
-            CallMethodWithConstant();
+            //CallMethodWithConstant();
+
+            //MVC Style fast property getters ASp.net
+            //RedirectToAction("Index", new {id = 5, query = "Test"});
+            //Това генерира речник с key=id, value=5, key=query, value="Test"
+            //
+            var obj = new { id = 5, query = "Test" };
+            var cat = new Cat { Age = 3, Name = "Pesho"};
+            //MakeWithReflection(obj);
+            MakeWithExpression(obj);            
+            MakeWithExpression(cat);           
+
+        }
+
+        private static void MakeWithExpression(object obj)
+        {
+
+            var a = PropertyHelper.Get(obj);
+            var dict = new Dictionary<string, object>();
+            PropertyHelper
+                .Get(obj)
+                .Select(pr => new
+                {
+                    Name = pr.Name,
+                    //bottleneck
+                    Value = pr.Getter(obj)
+                })
+                .ToList()
+                .ForEach(pr =>
+                {
+                    dict[pr.Name] = pr.Value;
+                    ;
+                });
+
+        }
+
+        public  static void MakeWithReflection(object obj)
+        {            
+            var dict = new Dictionary<string, object>();
+
+            obj.GetType()
+                .GetProperties()
+                .Select(o => new
+                {
+                    Name = o.Name,
+                    Value = o.GetValue(obj)
+                })
+                .ToList()
+                .ForEach(pr =>
+                {
+                    dict[pr.Name] = pr.Value;
+                });
+            ;
         }
 
         public static void CallMethodWithConstant()

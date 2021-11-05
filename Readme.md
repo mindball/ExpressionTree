@@ -129,6 +129,11 @@ public static IActionResult RedirectToAction<TController>(
 	}
 }	
 ```
+```
+Добра практика е да се замерва при смяна на версиите. Давам пример в първите версии на reflection-а CreateInstance 
+е бил много бавен сега е оправен с много Cache. Така, че има вероятност ако expresion е бил бърз в даден моменти
+при излизане на нова версия това да се промени тоест reflection-a да е по бърз и обратното важи.
+```
 
 ### Implement visitor pattern
 ```
@@ -159,3 +164,4 @@ var z = f(10,20)
 всъщност се компилират в "new instance of a hidden class"
 ```
 ## Разгледай как c# прави HiddenClass
+
