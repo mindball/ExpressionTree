@@ -29,7 +29,13 @@ namespace InterpetingExpressionVisitorPatternDemo
                 case ExpressionType.Lambda:
                     return new LambdaVisitor((LambdaExpression)node);
                 case ExpressionType.Add:
+                case ExpressionType.Equal:
+                case ExpressionType.Multiply:
                     return new BinaryVisitor((BinaryExpression)node);
+                case ExpressionType.Conditional:
+                    return new ConditionalVisitor((ConditionalExpression)node);
+                case ExpressionType.Call:
+                    return new MethodCallVisitor((MethodCallExpression)node);
                 default:
                     Console.Error.WriteLine($"Node not processed yet: {node.NodeType}");
                     return default(Visitor);
