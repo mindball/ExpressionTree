@@ -165,3 +165,22 @@ var z = f(10,20)
 ```
 ## Разгледай как c# прави HiddenClass
 
+## Lazy Initialization
+```
+Lazy initialization of an object means that its creation is deferred until it is first used. 
+(For this topic, the terms lazy initialization and lazy instantiation are synonymous.) Lazy initialization
+ is primarily used to improve performance, avoid wasteful computation, and reduce program memory 
+ requirements. These are the most common scenarios:
+```
+> When you have an object that is expensive to create, and the program might not use it. For example, assume 
+> that you have in memory a Customer object that has an Orders property that contains a large array of 
+> Order objects that, to be initialized, requires a database connection. If the user never asks to display
+> the Orders or use the data in a computation, then there is no reason to use system memory or computing
+> cycles to create it. By using Lazy<Orders> to declare the Orders object for lazy initialization, you can
+> avoid wasting system resources when the object is not used.
+ 
+> When you have an object that is expensive to create, and you want to defer its creation until after 
+> other expensive operations have been completed. For example, assume that your program loads several object
+> instances when it starts, but only some of them are required immediately. You can improve the startup performance
+> of the program by deferring initialization of the objects that are not required until the required objects have been created.
+
