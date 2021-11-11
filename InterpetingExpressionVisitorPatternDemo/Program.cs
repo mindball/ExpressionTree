@@ -12,7 +12,7 @@ namespace InterpetingExpressionVisitorPatternDemo
             //Expression<Func<int, int, int>> exp = (a, b) => a + b;
             //var v = Visitor.CreateFromExpression(exp);
             //v.Visit("-");
-            
+
 
             //Console.WriteLine(new string('-', 50));
 
@@ -37,7 +37,7 @@ namespace InterpetingExpressionVisitorPatternDemo
 
             var func = factorial.Compile();
 
-            var fib = func(10);            
+            var fib = func(10);
         }
     }
 }
