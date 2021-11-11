@@ -1,6 +1,7 @@
 ﻿using AlexeyGolubExpression_trees.Generic;
 using AlexeyGolubExpression_trees.IdentTypeMembers;
 using AlexeyGolubExpression_trees.Optimizing;
+using AlexeyGolubExpression_trees.ParsingDomainSpecificLanguageIntoExpressions;
 using BenchmarkDotNet;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
@@ -15,12 +16,20 @@ namespace AlexeyGolubExpression_trees
     {
         //https://youtu.be/US_3kUD5j2w
         public static void Main(string[] args)
-        {            
+        {
+            //1.
             //BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args, new DebugInProcessConfig());
 
-            IdentifyingTypeMembers obj = new IdentifyingTypeMembers();
-            obj.field.PropertyInfoOfDto();
+            //2.
+            //IdentifyingTypeMembers obj = new IdentifyingTypeMembers();
+            //obj.field.PropertyInfoOfDto();
 
+            //3.
+            //Parsing DSLs into expressions
+            var result = SimpleCalculator.Run("15 + 15");
+            Console.WriteLine(result);
+            result = SimpleCalculator.Run("15.5 + 15.99");
+            Console.WriteLine(result);
         }
     }
 
