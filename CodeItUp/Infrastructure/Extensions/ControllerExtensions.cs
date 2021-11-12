@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -11,6 +12,12 @@ namespace CodeItUp.Infrastructure.Extensions
 {
     public static class ControllerExtensions
     {
+        //Preffer to skipped, but after somehere is slowing down make cache
+        //We use ConcurrentDictionary because Asp.net core run request in parralel and
+        //if not use a ConcurrentDictionary may cause a rise condition on your cache
+        private static readonly ConcurrentDictionary<string, string> actionNameCache =
+            new ConcurrentDictionary<string, string>();
+
         public static IActionResult RedirectTo<TController>(
             this Controller controller,
             Expression<Action<TController>> redirectExpression)
@@ -84,17 +91,24 @@ namespace CodeItUp.Infrastructure.Extensions
 
         private static string GetActionName(MethodCallExpression expression)
         {
-            var methodName = expression.Method.Name;
             if (expression == null)
             {
                 throw new ArgumentException("Not a " + nameof(MethodCallExpression));
             }
 
-            var actionname = expression.Method
+            var methodName = expression.Method.Name;
+            var cacheKey = $"{methodName}_{expression.Object.Type.Name}"; //if have route value may continue with _routedValue
+
+            var action = actionNameCache.GetOrAdd(cacheKey, _ =>
+            {
+                var actionName = expression.Method
                 .GetCustomAttribute<ActionNameAttribute>()? //? If ActionName not set
                 .Name;
 
-            return actionname ?? methodName;
+                return actionName ?? methodName;
+            });
+
+            return action;
         }
     }
 }

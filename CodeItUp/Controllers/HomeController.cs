@@ -21,7 +21,7 @@ namespace CodeItUp.Controllers
 
         //[ActionName("Test")]
         //[HttpGet("Test")] //https://localhost:5001/Test => https://localhost:5001, https://localhost:5001/Index
-        [Route("Test")] //https://localhost:5001/Test => https://localhost:5001, https://localhost:5001/Index
+        //[Route("Test")] //https://localhost:5001/Test => https://localhost:5001, https://localhost:5001/Index
         public IActionResult Index(int id, string query)
         {
             return View();

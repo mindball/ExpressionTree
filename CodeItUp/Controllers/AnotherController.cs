@@ -12,7 +12,7 @@ namespace CodeItUp.Controllers
         public IActionResult About()
         {
             int id = 5;
-            string query = "Test";
+            string query = "alabala";
 
             return this.RedirectTo<HomeController>(c => c.Index(id, query));
         }
