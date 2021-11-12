@@ -21,8 +21,8 @@ namespace AlexeyGolubExpression_trees
             //BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args, new DebugInProcessConfig());
 
             //2.
-            //IdentifyingTypeMembers obj = new IdentifyingTypeMembers();
-            //obj.field.PropertyInfoOfDto();
+            IdentifyingTypeMembers obj = new IdentifyingTypeMembers();
+            obj.field.ValidateWithReflection();
 
             //3.
             //Parsing DSLs into expressions
@@ -74,7 +74,7 @@ namespace AlexeyGolubExpression_trees
 
     public class IdentifyingTypeMembers
     {
-        public GetWithReflection field { get; } = new GetWithReflection();
+        public CallValidator field { get; } = new CallValidator();
     }
 
     

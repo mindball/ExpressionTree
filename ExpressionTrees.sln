@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterpetingExpressionVisito
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlexeyGolubExpression trees", "AlexeyGolubExpression trees\AlexeyGolubExpression trees.csproj", "{F3E59FBD-75E2-44F7-95CC-38F457A2DC61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeItUpWith", "CodeItUpWith\CodeItUpWith.csproj", "{6843CB5B-3CB7-4BFF-90FF-A8C98BC671FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeItUp", "CodeItUp\CodeItUp.csproj", "{2F13895A-61A9-46BA-A311-E4FBD33FE727}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{F3E59FBD-75E2-44F7-95CC-38F457A2DC61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3E59FBD-75E2-44F7-95CC-38F457A2DC61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3E59FBD-75E2-44F7-95CC-38F457A2DC61}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6843CB5B-3CB7-4BFF-90FF-A8C98BC671FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6843CB5B-3CB7-4BFF-90FF-A8C98BC671FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6843CB5B-3CB7-4BFF-90FF-A8C98BC671FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6843CB5B-3CB7-4BFF-90FF-A8C98BC671FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F13895A-61A9-46BA-A311-E4FBD33FE727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F13895A-61A9-46BA-A311-E4FBD33FE727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F13895A-61A9-46BA-A311-E4FBD33FE727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F13895A-61A9-46BA-A311-E4FBD33FE727}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
